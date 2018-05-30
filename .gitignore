@@ -2,5 +2,5 @@ build
 .build
 .gradle
 gradle
-
-
+*.iml
+.idea
