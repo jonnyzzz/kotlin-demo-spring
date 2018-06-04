@@ -54,3 +54,12 @@ project.afterEvaluate {
   tasks.getByName("webpack-bundle").dependsOn tasks.compileKotlin2Js, tasks.compileTestKotlin2Js, tasks.getByName("npm-deps")
   tasks.getByName("webpack-run").dependsOn tasks.getByName("webpack-bundle")
 }
+
+task run_node(type: Exec) {
+  dependsOn "compileTestKotlin2Js"
+  commandLine "node", "classes/kotlin/main/js.js"
+
+  environment("NODE_PATH", "$buildDir:$buildDir/classes/kotlin/main:$buildDir/node_modules")
+
+  workingDir "$buildDir"
+}
