@@ -1,4 +1,4 @@
-package org.jetbrains.demo.demo
+package org.jetbrains.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
