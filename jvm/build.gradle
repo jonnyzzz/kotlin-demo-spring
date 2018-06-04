@@ -10,6 +10,10 @@ dependencies {
   compile("org.jetbrains.kotlin:kotlin-reflect")
   compile("org.jetbrains.kotlin:kotlin-test-junit")
 
+
+  compile "org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlin_html_version"
+  compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_coroutines_version"
+
   compile 'ch.qos.logback:logback-classic:1.2.3'
 
   compile("junit:junit:4.12")
