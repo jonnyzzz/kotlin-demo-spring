@@ -24,7 +24,8 @@ class MyController {
   fun dataAndTime(): String {
     val now = LocalDateTime.now()
     val dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")
-    return dtf.format(now)
+    val result = dtf.format(now)
+    return result
   }
 }
 
