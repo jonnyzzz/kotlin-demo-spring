@@ -1,0 +1,61 @@
+apply plugin: "kotlin-platform-js"
+apply plugin: "org.jetbrains.kotlin.frontend"
+
+dependencies {
+  expectedBy project(":common")
+
+  compile "org.jetbrains.kotlin:kotlin-stdlib-js"
+
+  compile "org.jetbrains.kotlinx:kotlinx-html-js:$kotlin_html_version"
+  compile "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$kotlinx_coroutines_version"
+
+  compile "org.jetbrains.kotlin:kotlin-test-js"
+
+  //javascript & react specifics
+  compile "org.jetbrains:kotlin-react:$react_version"
+  compile "org.jetbrains:kotlin-react-dom:$react_dom_version"
+  compile "org.jetbrains:kotlin-styled:$styled_version"
+}
+
+kotlin {
+  experimental.coroutines = 'ENABLE'
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile) {
+  kotlinOptions.metaInfo = true
+  kotlinOptions.sourceMap = true
+  kotlinOptions.moduleKind = "commonjs"
+  kotlinOptions.main = "call"
+}
+
+kotlinFrontend {
+  npm {
+    //color spaces
+    dependency "color-convert"
+    dependency "react"
+    dependency "react-dom"
+    dependency "styled-components"
+    dependency "inline-style-prefixer"
+    dependency "underscore"
+
+    devDependency "karma"
+    devDependency "qunit"
+  }
+
+  sourceMaps = true
+
+  webpackBundle {
+    bundleName = "main"
+    contentPath = file('src/main/web')
+    port = 7777
+  }
+
+  define "PRODUCTION", false
+}
+
+//TODO: make runner connect incrementals
+project.afterEvaluate {
+  tasks.getByName("karma-run-single").outputs.upToDateWhen { false }
+  tasks.getByName("webpack-bundle").dependsOn tasks.compileKotlin2Js, tasks.compileTestKotlin2Js, tasks.getByName("npm-deps")
+  tasks.getByName("webpack-run").dependsOn tasks.getByName("webpack-bundle")
+}
