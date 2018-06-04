@@ -6,7 +6,7 @@ public class TestInJava {
 
   @Test
   public void testMessage() {
-//    Assert.assertEquals("", JvmKt.getHi("JUnit"));
+    Assert.assertEquals("", JvmKt.getHelloMessage("JUnit"));
   }
 
 }
