@@ -28,5 +28,10 @@ class MyController {
     val dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")
     return dtf.format(now)
   }
+
+
+  @ResponseBody
+  @RequestMapping("/time2")
+  fun dataAndTime2(): String = renderTimeHTML("aaa")
 }
 

@@ -10,10 +10,6 @@ dependencies {
   compile("org.jetbrains.kotlin:kotlin-reflect")
   compile("org.jetbrains.kotlin:kotlin-test-junit")
 
-  compile "io.ktor:ktor-server-core:$ktor_version"
-  compile "io.ktor:ktor-server-netty:$ktor_version"
-  compile "io.ktor:ktor-html-builder:$ktor_version"
-
   compile 'ch.qos.logback:logback-classic:1.2.3'
 
   compile("junit:junit:4.12")

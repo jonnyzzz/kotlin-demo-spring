@@ -10,11 +10,6 @@ dependencies {
   compile "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$kotlinx_coroutines_version"
 
   compile "org.jetbrains.kotlin:kotlin-test-js"
-
-  //javascript & react specifics
-  compile "org.jetbrains:kotlin-react:$react_version"
-  compile "org.jetbrains:kotlin-react-dom:$react_dom_version"
-  compile "org.jetbrains:kotlin-styled:$styled_version"
 }
 
 kotlin {
