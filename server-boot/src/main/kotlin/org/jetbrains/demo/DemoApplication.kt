@@ -10,7 +10,6 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 
-@ComponentScan("org.jetbrains.demo")
 @SpringBootApplication
 class DemoApplication
 
@@ -28,10 +27,5 @@ class MyController {
     val dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")
     return dtf.format(now)
   }
-
-
-  @ResponseBody
-  @RequestMapping("/time2")
-  fun dataAndTime2(): String = renderTimeHTML("aaa")
 }
 
