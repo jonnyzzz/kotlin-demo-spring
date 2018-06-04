@@ -6,13 +6,11 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
-import org.springframework.web.servlet.ModelAndView
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 
-@ComponentScan(basePackages = ["org.jetbrains.demo"] )
+@ComponentScan("org.jetbrains.demo")
 @SpringBootApplication
 class DemoApplication
 
@@ -26,7 +24,6 @@ class MyController {
   @ResponseBody
   @RequestMapping("/time")
   fun dataAndTime(): String {
-
     val now = LocalDateTime.now()
     val dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")
     return dtf.format(now)
