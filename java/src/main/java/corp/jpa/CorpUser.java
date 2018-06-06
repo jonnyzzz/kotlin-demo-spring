@@ -45,7 +45,7 @@ public class CorpUser {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, hi);
+    return Objects.hash(name);
   }
 
   @Override
