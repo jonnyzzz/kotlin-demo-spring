@@ -3,6 +3,7 @@ rootProject.name = 'kotlin-demo-spring'
 include(':common')
 include(':js')
 include(':jvm')
+include(':java')
 include(':native')
 
 
